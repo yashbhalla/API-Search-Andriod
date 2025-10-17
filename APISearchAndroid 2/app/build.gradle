@@ -1,0 +1,39 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 34
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "com.mobile_computing"
+        minSdkVersion 17
+        targetSdkVersion 34
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    namespace 'com.mobile_computing'
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    implementation 'com.android.support:appcompat-v7:25.1.0'
+    implementation 'com.android.volley:volley:1.1.0'
+    implementation 'com.android.support:cardview-v7:25.1.0'
+    implementation 'com.android.support:recyclerview-v7:25.1.0'
+
+    testImplementation 'junit:junit:4.12'
+}
